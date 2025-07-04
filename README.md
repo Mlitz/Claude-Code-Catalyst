@@ -76,38 +76,31 @@ Follow the sequential prompts to build your application:
 ### 🔄 Visual Workflow
 
 ```mermaid
-graph LR
-    subgraph "One-Time Setup"
-        A[0. MCP Server<br/>Setup] --> B[0.5. Workflow<br/>Automation]
-    end
+graph TD
+    A["🔧 MCP Server Setup<br/>(15-30 min)"] --> B["⚙️ Workflow Automation<br/>(10-15 min)"]
+    B --> C["📋 Requirements Discovery<br/>(30-60 min)"]
+    C --> D["📄 Specification Generation<br/>(30-45 min)"]
+    D --> E["🗺️ Development Planning<br/>(20-30 min)"]
+    E --> F["🏗️ Project Setup<br/>(15-20 min)"]
+    F --> G["🚀 Session Initialization<br/>(5-10 min)"]
+    G --> H["🧪 Feature Development<br/>TDD Cycle"]
+    H --> I{Feature Complete?}
+    I -->|No| H
+    I -->|Yes| J{More Features?}
+    J -->|Yes| G
+    J -->|No| K["✅ Project Complete<br/>Deploy & Document"]
     
-    subgraph "Per Project"
-        C[1. Requirements<br/>Discovery] --> D[2. Specification<br/>Generation]
-        D --> E[3. Development<br/>Planning]
-        E --> F[4. Project<br/>Setup]
-    end
-    
-    subgraph "Daily Development"
-        G[5. Session<br/>Initialization] --> H[6. Feature Development<br/>TDD Cycle]
-        H --> I{Feature<br/>Complete?}
-        I -->|No| H
-        I -->|Yes| J{More<br/>Features?}
-        J -->|Yes| G
-        J -->|No| K[🚀 Deploy]
-    end
-    
-    B --> C
-    F --> G
-    
-    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style B fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
-    style C fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    style D fill:#fce4ec,stroke:#c2185b,stroke-width:2px
-    style E fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    style F fill:#e0f2f1,stroke:#00796b,stroke-width:2px
-    style G fill:#fff8e1,stroke:#f9a825,stroke-width:2px
-    style H fill:#ffebee,stroke:#d32f2f,stroke-width:2px
-    style K fill:#e8f5e8,stroke:#4caf50,stroke-width:3px
+    style A fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
+    style B fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
+    style C fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
+    style D fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
+    style E fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
+    style F fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
+    style G fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
+    style H fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
+    style I fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
+    style J fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
+    style K fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
 ```
 
 ### 📝 Step-by-Step Workflow
