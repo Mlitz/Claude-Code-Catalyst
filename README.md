@@ -347,6 +347,194 @@ npm run lint
 4. **Export Conversation**: Use `claude-prompts` for context
 5. **Create Issue**: Use GitHub Issues for bug reports
 
+## 📤 Conversation Export & Documentation
+
+**IMPORTANT**: To help improve this workflow system and share your implementation experiences, please export your Claude Code conversations in JSON format.
+
+### Why Export Conversations?
+
+- **Workflow Improvement**: Your conversations help identify pain points and optimization opportunities
+- **Example Creation**: Real conversations become valuable examples for other developers
+- **Pattern Recognition**: Helps identify common issues and successful patterns
+- **Community Learning**: Anonymized conversations can be used to improve documentation
+
+### How to Export (Required Setup)
+
+The workflow includes the `claude-code-exporter` tool for conversation management:
+
+```bash
+# Install the export tool (done during MCP setup)
+npm install -g claude-code-exporter
+
+# Verify installation
+claude-prompts --help
+```
+
+### Export Commands
+
+```bash
+# Export current session in JSON format
+claude-prompts --json
+
+# Export current session to specific file
+claude-prompts --json --output my-project-session.json
+
+# Export all conversations from last 7 days
+claude-prompts --json --period=7d --output weekly-conversations.json
+
+# Export specific conversation by ID
+claude-prompts --json --session-id <session-id> --output specific-session.json
+
+# List available sessions to get IDs
+claude-prompts --list
+```
+
+### 📋 Export Best Practices
+
+#### When to Export
+
+- **After each major workflow step** (requirements, specification, planning, etc.)
+- **End of each development session**
+- **When encountering issues or breakthroughs**
+- **After completing features or milestones**
+- **Before major refactoring or architectural changes**
+
+#### Export Naming Convention
+
+Use descriptive filenames to organize exports:
+
+```bash
+# Project initialization
+claude-prompts --json --output project-name-01-requirements.json
+claude-prompts --json --output project-name-02-specification.json
+claude-prompts --json --output project-name-03-planning.json
+
+# Development sessions
+claude-prompts --json --output project-name-dev-session-YYYY-MM-DD.json
+
+# Feature development
+claude-prompts --json --output project-name-feature-authentication.json
+claude-prompts --json --output project-name-feature-api-endpoints.json
+```
+
+#### What to Include in Exports
+
+**Essential Exports:**
+- [ ] Complete workflow runs (all 8 steps)
+- [ ] TDD implementation sessions
+- [ ] Problem-solving conversations
+- [ ] Successful feature implementations
+- [ ] Error resolution sessions
+
+**Valuable Exports:**
+- [ ] MCP server troubleshooting
+- [ ] Architecture decision discussions
+- [ ] Performance optimization sessions
+- [ ] Security implementation conversations
+- [ ] Testing strategy development
+
+### 🔒 Privacy & Security
+
+#### Before Exporting
+
+**ALWAYS review exports for sensitive information:**
+
+```bash
+# Review export content before sharing
+cat your-export.json | grep -i -E "(password|secret|key|token|credential)"
+
+# Remove sensitive data if found
+# Edit the JSON file to redact private information
+```
+
+#### Safe to Share
+
+- ✅ General development patterns and solutions
+- ✅ TDD implementation strategies
+- ✅ MCP server usage examples
+- ✅ Architecture discussions (without business secrets)
+- ✅ Error messages and troubleshooting steps
+- ✅ Code examples (without proprietary logic)
+
+#### DO NOT Share
+
+- ❌ API keys, passwords, or credentials
+- ❌ Proprietary business logic or algorithms
+- ❌ Private company information
+- ❌ Personal information (emails, names, addresses)
+- ❌ Internal URLs or server configurations
+- ❌ Database schemas with sensitive data
+
+### 📊 Sharing Your Exports
+
+#### For Workflow Improvement
+
+Email JSON exports to: **claude-code-catalyst@example.com**
+
+**Subject Line Format:**
+- `[EXPORT] Project Type - Workflow Step - Brief Description`
+- Examples:
+  - `[EXPORT] React App - Complete Workflow - E-commerce Platform`
+  - `[EXPORT] API Service - TDD Session - Authentication Implementation`
+  - `[EXPORT] CLI Tool - Troubleshooting - MCP Server Issues`
+
+#### For Community Examples
+
+Create a GitHub issue with:
+- **Title**: `[EXAMPLE] Project Type: Brief Description`
+- **Attach**: Sanitized JSON export
+- **Include**: Brief project description and key learnings
+- **Tag**: `example`, `documentation`
+
+#### For Bug Reports
+
+If your export contains error reproduction:
+- **Title**: `[BUG] Brief Error Description`
+- **Attach**: Relevant JSON export sections
+- **Include**: Steps to reproduce and expected behavior
+- **Tag**: `bug`, `needs-investigation`
+
+### 📈 Export Analytics
+
+Your exports help us understand:
+
+- **Common workflow patterns** and successful implementations
+- **Frequent pain points** and areas needing improvement
+- **MCP server usage patterns** and optimization opportunities
+- **TDD adoption challenges** and solutions
+- **Documentation gaps** and unclear instructions
+
+### 🎯 Export Goals
+
+Help us reach these community goals:
+
+- **100 Complete Workflow Exports**: Full project implementations
+- **500 Feature Development Sessions**: TDD implementation examples
+- **50 Problem Resolution Sessions**: Troubleshooting and solutions
+- **25 Architecture Decision Sessions**: Design pattern discussions
+
+**Your contributions make this workflow system better for everyone!**
+
+### Example Export Session
+
+```bash
+# Start new project session
+claude-prompts --start-session "MyApp Requirements Discovery"
+
+# ... work through requirements prompt ...
+
+# Export the session
+claude-prompts --json --output myapp-requirements-2025-01-04.json
+
+# Continue to next step
+claude-prompts --start-session "MyApp Specification Generation"
+
+# ... work through specification prompt ...
+
+# Export specification session
+claude-prompts --json --output myapp-specification-2025-01-04.json
+```
+
 ## 🤝 Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
