@@ -73,30 +73,96 @@ Follow the sequential prompts to build your application:
 
 ## 📋 Workflow Overview
 
+### 🔄 Visual Workflow
+
 ```mermaid
-graph TD
-    A[MCP Server Setup] --> B[Workflow Automation]
-    B --> C[Requirements Discovery]
-    C --> D[Specification Generation]
-    D --> E[Development Planning]
-    E --> F[Project Setup]
-    F --> G[Session Initialization]
-    G --> H[Feature Development TDD]
-    H --> I{Feature Complete?}
-    I -->|No| H
-    I -->|Yes| J{Project Complete?}
-    J -->|No| G
-    J -->|Yes| K[Deployment & Documentation]
+graph LR
+    subgraph "One-Time Setup"
+        A[0. MCP Server<br/>Setup] --> B[0.5. Workflow<br/>Automation]
+    end
     
-    style A fill:#e1f5fe
-    style B fill:#e8f5e8
-    style C fill:#fff3e0
-    style D fill:#fce4ec
-    style E fill:#f3e5f5
-    style F fill:#e0f2f1
-    style G fill:#fff8e1
-    style H fill:#ffebee
-    style K fill:#e8f5e8
+    subgraph "Per Project"
+        C[1. Requirements<br/>Discovery] --> D[2. Specification<br/>Generation]
+        D --> E[3. Development<br/>Planning]
+        E --> F[4. Project<br/>Setup]
+    end
+    
+    subgraph "Daily Development"
+        G[5. Session<br/>Initialization] --> H[6. Feature Development<br/>TDD Cycle]
+        H --> I{Feature<br/>Complete?}
+        I -->|No| H
+        I -->|Yes| J{More<br/>Features?}
+        J -->|Yes| G
+        J -->|No| K[🚀 Deploy]
+    end
+    
+    B --> C
+    F --> G
+    
+    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style B fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
+    style C fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style D fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style E fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style F fill:#e0f2f1,stroke:#00796b,stroke-width:2px
+    style G fill:#fff8e1,stroke:#f9a825,stroke-width:2px
+    style H fill:#ffebee,stroke:#d32f2f,stroke-width:2px
+    style K fill:#e8f5e8,stroke:#4caf50,stroke-width:3px
+```
+
+### 📝 Step-by-Step Workflow
+
+#### Phase 1: One-Time Setup (Do Once)
+```
+Step 0   │ MCP Server Setup          │ 15-30 min │ Configure 5 essential servers
+Step 0.5 │ Workflow Automation       │ 10-15 min │ Create automation framework
+```
+
+#### Phase 2: Per Project (For Each New Project)
+```
+Step 1   │ Requirements Discovery    │ 30-60 min │ Gather comprehensive requirements
+Step 2   │ Specification Generation  │ 30-45 min │ Create spec.md + CLAUDE.md  
+Step 3   │ Development Planning      │ 20-30 min │ Generate TDD-enhanced plan
+Step 4   │ Project Setup            │ 15-20 min │ Initialize infrastructure
+```
+
+#### Phase 3: Daily Development (Repeat Daily)
+```
+Step 5   │ Session Initialization   │  5-10 min │ Load context & verify health
+Step 6   │ Feature Development      │ Variable  │ TDD cycle: RED→GREEN→REFACTOR
+         │ ↳ Repeat Step 6 for each feature
+```
+
+### 🎯 Quick Reference
+
+| Prompt File | Purpose | When to Use |
+|-------------|---------|-------------|
+| `00-mcp-server-setup.md` | Install MCP servers | **Once** - Initial setup |
+| `01-automated-workflow-setup.md` | Create automation | **Once** - After MCP setup |
+| `02-interactive-requirements-discovery.md` | Gather requirements | **Per project** - New projects |
+| `03-comprehensive-specification-generation.md` | Create specifications | **Per project** - After requirements |
+| `04-claude-code-plan-generation.md` | Generate development plan | **Per project** - After specs |
+| `05-project-setup-todo-management.md` | Setup infrastructure | **Per project** - After planning |
+| `06-development-session-initialization.md` | Start daily session | **Daily** - Every dev session |
+| `07-tdd-enforcement-template.md` | Implement features | **Per feature** - Development work |
+
+### 🔁 Development Cycle
+
+```
+Daily Development Loop:
+┌─────────────────────────────────────────┐
+│ 1. Session Init (Step 5)               │
+│ 2. Pick feature from todo.md           │
+│ 3. Use TDD Template (Step 6):          │
+│    ├─ Write failing tests (RED)        │
+│    ├─ Implement minimal code (GREEN)   │
+│    ├─ Refactor & improve (REFACTOR)    │
+│    └─ Document & commit                │
+│ 4. Update todo.md progress             │
+│ 5. Export conversation (JSON)          │
+└─────────────────────────────────────────┘
+         ↓
+    Repeat until project complete
 ```
 
 ## 🛠️ Detailed Usage
