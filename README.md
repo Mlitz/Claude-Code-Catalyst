@@ -1,17 +1,19 @@
 # Claude Code Catalyst 🚀
 
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/yourusername/claude-code-catalyst)
+[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](https://github.com/mlitz/claude-code-catalyst)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![TDD Required](https://img.shields.io/badge/TDD-Required-red.svg)](https://github.com/yourusername/claude-code-catalyst)
+[![TDD Required](https://img.shields.io/badge/TDD-Required-red.svg)](https://github.com/mlitz/claude-code-catalyst)
+[![Linting Enforced](https://img.shields.io/badge/Linting-Enforced-green.svg)](https://github.com/mlitz/claude-code-catalyst)
 
-> **A comprehensive AI-powered development workflow system that transforms how you build production-ready applications with Claude Code and strict Test-Driven Development practices.**
+> **A comprehensive AI-powered development workflow system that transforms how you build production-ready applications with Claude Code, strict Test-Driven Development, and integrated code quality enforcement.**
 
-Claude Code Catalyst is a battle-tested, 8-step workflow system that leverages Claude Code's MCP (Model Context Protocol) servers to create a seamless, intelligent development experience. Whether you're building web applications, APIs, or complex systems, this workflow ensures quality, maintainability, and rapid delivery through enforced TDD practices.
+Claude Code Catalyst is a battle-tested, 8-prompt workflow system that leverages Claude Code's MCP (Model Context Protocol) servers to create a seamless, intelligent development experience. Whether you're building web applications, APIs, or complex systems, this workflow ensures quality, maintainability, and rapid delivery through enforced TDD practices and automated linting standards.
 
 ## ✨ Key Features
 
 - 🔄 **End-to-End Workflow**: From requirements to deployment, with clear validation gates
 - 🧪 **Strict TDD Enforcement**: Non-negotiable test-first development with 100% coverage targets
+- 🔧 **Integrated Linting**: Automatic language detection and linter setup with pre-commit hooks
 - 🤖 **MCP Server Integration**: Leverage 5 powerful AI servers for code analysis, documentation, and more
 - 📋 **Automated Project Management**: Dynamic todo tracking and progress monitoring
 - 🔒 **Security-First**: Built-in security mandates and vulnerability prevention
@@ -33,7 +35,7 @@ Before using Claude Code Catalyst, ensure you have:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/claude-code-catalyst.git
+git clone https://github.com/mlitz/claude-code-catalyst.git
 cd claude-code-catalyst
 ```
 
@@ -43,7 +45,7 @@ The foundation of this workflow is the MCP server ecosystem. Start with:
 
 ```bash
 # Use the first prompt to set up all required MCP servers
-# Copy and paste the content from prompts/00-mcp-server-setup.md into Claude Code
+# Copy and paste the content from prompts/prompt-0-v2.0.md into Claude Code
 ```
 
 This sets up 5 essential servers:
@@ -57,197 +59,169 @@ This sets up 5 essential servers:
 
 ```bash
 # Use the workflow automation setup
-# Copy content from prompts/01-automated-workflow-setup.md into Claude Code
+# Copy content from prompts/prompt-0.5-v2.1.md into Claude Code
 ```
 
 ### 4. Start Building
 
 Follow the sequential prompts to build your application:
 
-1. **Requirements Discovery** (`prompts/02-interactive-requirements-discovery.md`)
-2. **Specification Generation** (`prompts/03-comprehensive-specification-generation.md`)
-3. **Development Planning** (`prompts/04-claude-code-plan-generation.md`)
-4. **Project Setup** (`prompts/05-project-setup-todo-management.md`)
-5. **Daily Development** (`prompts/06-development-session-initialization.md`)
-6. **Feature Implementation** (`prompts/07-tdd-enforcement-template.md`)
+1. **Requirements Discovery** (`prompts/prompt-1-v2.0.md` - missing, was in deleted file)
+2. **Specification Generation** (`prompts/prompt-2-v3.1.md`)
+3. **Development Planning** (`prompts/prompt-3-v2.1.md`)
+4. **Project Setup** (`prompts/prompt-4-v2.1.md`)
+5. **Daily Development** (`prompts/prompt-5-v2.1.md`)
+6. **Feature Implementation** (`prompts/prompt-6-v2.1.md`)
 
 ## 📋 Workflow Overview
 
-### 🔄 Visual Workflow
-
 ```mermaid
 graph TD
-    A["🔧 MCP Server Setup<br/>(15-30 min)"] --> B["⚙️ Workflow Automation<br/>(10-15 min)"]
-    B --> C["📋 Requirements Discovery<br/>(30-60 min)"]
-    C --> D["📄 Specification Generation<br/>(30-45 min)"]
-    D --> E["🗺️ Development Planning<br/>(20-30 min)"]
-    E --> F["🏗️ Project Setup<br/>(15-20 min)"]
-    F --> G["🚀 Session Initialization<br/>(5-10 min)"]
-    G --> H["🧪 Feature Development<br/>TDD Cycle"]
+    A[Prompt 0: MCP Server Setup v2.0] --> B[Prompt 0.5: Workflow Automation v2.1]
+    B --> C[Prompt 1: Requirements Discovery v2.0]
+    C --> D[Prompt 2: Specification Generation v3.1]
+    D --> E[Prompt 3: Development Planning v2.1]
+    E --> F[Prompt 4: Project Setup v2.1]
+    F --> G[Prompt 5: Session Initialization v2.1]
+    G --> H[Prompt 6: Feature Development TDD v2.1]
     H --> I{Feature Complete?}
     I -->|No| H
-    I -->|Yes| J{More Features?}
-    J -->|Yes| G
-    J -->|No| K["✅ Project Complete<br/>Deploy & Document"]
+    I -->|Yes| J{Project Complete?}
+    J -->|No| G
+    J -->|Yes| K[Deployment & Documentation]
     
-    style A fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
-    style B fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
-    style C fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
-    style D fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
-    style E fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
-    style F fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
-    style G fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
-    style H fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
-    style I fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
-    style J fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
-    style K fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000
+    style A fill:#e1f5fe
+    style B fill:#e8f5e8
+    style C fill:#fff3e0
+    style D fill:#fce4ec
+    style E fill:#f3e5f5
+    style F fill:#e0f2f1
+    style G fill:#fff8e1
+    style H fill:#ffebee
+    style K fill:#e8f5e8
 ```
-
-### 📝 Step-by-Step Workflow
-
-#### Phase 1: One-Time Setup (Do Once)
-```
-Step 0   │ MCP Server Setup          │ 15-30 min │ Configure 5 essential servers
-Step 0.5 │ Workflow Automation       │ 10-15 min │ Create automation framework
-```
-
-#### Phase 2: Per Project (For Each New Project)
-```
-Step 1   │ Requirements Discovery    │ 30-60 min │ Gather comprehensive requirements
-Step 2   │ Specification Generation  │ 30-45 min │ Create spec.md + CLAUDE.md  
-Step 3   │ Development Planning      │ 20-30 min │ Generate TDD-enhanced plan
-Step 4   │ Project Setup            │ 15-20 min │ Initialize infrastructure
-```
-
-#### Phase 3: Daily Development (Repeat Daily)
-```
-Step 5   │ Session Initialization   │  5-10 min │ Load context & verify health
-Step 6   │ Feature Development      │ Variable  │ TDD cycle: RED→GREEN→REFACTOR
-         │ ↳ Repeat Step 6 for each feature
-```
-
-### 🎯 Quick Reference
-
-| Prompt File | Purpose | When to Use |
-|-------------|---------|-------------|
-| `00-mcp-server-setup.md` | Install MCP servers | **Once** - Initial setup |
-| `01-automated-workflow-setup.md` | Create automation | **Once** - After MCP setup |
-| `02-interactive-requirements-discovery.md` | Gather requirements | **Per project** - New projects |
-| `03-comprehensive-specification-generation.md` | Create specifications | **Per project** - After requirements |
-| `04-claude-code-plan-generation.md` | Generate development plan | **Per project** - After specs |
-| `05-project-setup-todo-management.md` | Setup infrastructure | **Per project** - After planning |
-| `06-development-session-initialization.md` | Start daily session | **Daily** - Every dev session |
-| `07-tdd-enforcement-template.md` | Implement features | **Per feature** - Development work |
-
 
 ## 🛠️ Detailed Usage
 
 ### Phase 1: Infrastructure Setup (One-time)
 
-#### Step 0: MCP Server Configuration
-**File**: `prompts/00-mcp-server-setup.md`
+#### Prompt 0: MCP Server Configuration V2.0
+**File**: `prompts/prompt-0-v2.0.md`
 **Duration**: 15-30 minutes
 **Purpose**: Install and configure all required MCP servers
 
 This critical first step ensures your Claude Code environment has access to:
-- Code analysis and refactoring tools
-- Real-time documentation lookup
+- Code analysis and refactoring tools with language support matrix
+- Real-time documentation lookup with enhanced error handling
 - Persistent memory across sessions
 - Secure filesystem operations
-- GitHub integration
+- GitHub integration with troubleshooting guide
 
-#### Step 0.5: Workflow Automation
-**File**: `prompts/01-automated-workflow-setup.md`
+#### Prompt 0.5: Workflow Automation V2.1
+**File**: `prompts/prompt-0.5-v2.1.md`
 **Duration**: 10-15 minutes
-**Purpose**: Create workflow automation framework
+**Purpose**: Create workflow automation framework with linting integration
 
-Sets up the intelligent automation system that tracks your progress, validates steps, and maintains project state.
+Sets up the intelligent automation system with:
+- Workflow progress tracking and validation
+- Integrated linting standards configuration
+- Pre-commit hooks setup
+- Language-specific linter configuration
+- Quality validation scripts
 
 ### Phase 2: Project Initialization (Per Project)
 
-#### Step 1: Requirements Discovery
-**File**: `prompts/02-interactive-requirements-discovery.md`
+#### Prompt 1: Requirements Discovery V2.0
+**File**: `prompts/prompt-1-v2.0.md` (Currently Missing - was in deleted file)
 **Duration**: 30-60 minutes
 **Purpose**: Systematic requirements gathering
 
 Interactive session that builds complete project understanding through:
-- Core functionality identification
-- User persona development
-- Technical constraint analysis
-- Success criteria definition
+- Single-question discovery process
+- 4-phase progression (20 questions total)
+- Memory server integration
+- Complete specification building
 
-#### Step 2: Specification Generation
-**File**: `prompts/03-comprehensive-specification-generation.md`
+#### Prompt 2: Specification Generation V3.1
+**File**: `prompts/prompt-2-v3.1.md`
 **Duration**: 30-45 minutes
-**Purpose**: Create comprehensive project documentation
+**Purpose**: Create comprehensive project documentation with dynamic linting
 
 Generates production-ready documentation:
 - `spec.md`: Complete technical specification
 - `CLAUDE.md`: AI development context with TDD rules
 - `work-journal.md`: Development tracking system
+- Dynamic language detection for linting configuration
+- Language-specific coding standards
 
-#### Step 3: Development Planning
-**File**: `prompts/04-claude-code-plan-generation.md`
+#### Prompt 3: Development Planning V2.1
+**File**: `prompts/prompt-3-v2.1.md`
 **Duration**: 20-30 minutes
-**Purpose**: Create detailed implementation roadmap
+**Purpose**: Create detailed implementation roadmap with quality enforcement
 
 Uses Claude Code's planning feature enhanced with:
-- TDD methodology integration
-- Task granularity and time estimates
+- TDD methodology integration at every task
+- Integrated linting at every step
+- Granular task breakdown with time estimates
+- Quality metrics and gates
 - Risk identification and mitigation
-- MCP server utilization strategy
 
-#### Step 4: Project Setup
-**File**: `prompts/05-project-setup-todo-management.md`
+#### Prompt 4: Project Setup V2.1
+**File**: `prompts/prompt-4-v2.1.md`
 **Duration**: 15-20 minutes
-**Purpose**: Establish project infrastructure
+**Purpose**: Establish project infrastructure with auto-linter
 
 Creates complete project management system:
-- Dynamic todo tracking (`todo.md`)
-- Git repository setup
-- Development environment configuration
-- Quality gates and automation
+- Dynamic todo tracking (`todo.md`) with real-time updates
+- Automatic language detection and linter installation
+- CI/CD pipeline with linting integration
+- Git repository setup with quality gates
+- Language-specific linter setup scripts
 
 ### Phase 3: Development Execution (Daily)
 
-#### Step 5: Session Initialization
-**File**: `prompts/06-development-session-initialization.md`
+#### Prompt 5: Session Initialization V2.1
+**File**: `prompts/prompt-5-v2.1.md`
 **Duration**: 5-10 minutes per session
-**Purpose**: Load context and prepare for development
+**Purpose**: Load context and prepare for development with linter verification
 
 Each development session starts with:
-- MCP server health verification
-- Context recovery from previous sessions
-- Repository status analysis
-- Session planning and prioritization
+- MCP server health checks and verification
+- Linter verification and setup validation
+- Context recovery from all project documentation
+- Session intelligence report generation
+- Quality commitment enforcement
 
-#### Step 6: Feature Development (TDD)
-**File**: `prompts/07-tdd-enforcement-template.md`
+#### Prompt 6: Feature Development (TDD) V2.1
+**File**: `prompts/prompt-6-v2.1.md`
 **Duration**: Variable per feature
-**Purpose**: Implement features with strict TDD
+**Purpose**: Implement features with strict TDD and integrated linting
 
-The core development template that ensures:
-- **RED**: Write failing tests first
+The bulletproof development template with 7-phase process:
+- **RED**: Write failing tests first (non-negotiable)
 - **GREEN**: Implement minimal code to pass
-- **REFACTOR**: Improve code quality
+- **REFACTOR**: Improve code quality with linting
 - **INTEGRATE**: Connect to system
-- **DOCUMENT**: Comprehensive documentation
+- **LINT**: Mandatory linting after every code change
+- **VALIDATE**: Comprehensive quality gates
+- **DOCUMENT**: Complete documentation
 
-## 🎯 TDD Enforcement
+## 🎯 TDD & Quality Enforcement
 
-This workflow system implements **non-negotiable TDD practices**:
+This workflow system implements **non-negotiable TDD practices** with integrated linting:
 
 ### The TDD Contract
 
 - ❌ **NEVER** write production code without a failing test
 - ✅ **ALWAYS** write tests first (RED phase)
-- 🔄 **FOLLOW** Red-Green-Refactor cycle religiously
+- 🔄 **FOLLOW** Red-Green-Refactor-Lint cycle religiously
 - 📊 **MAINTAIN** 100% test coverage targets
 - 🚫 **NO EXCEPTIONS** - violations = task failure
 
 ### Quality Metrics
 
 - **Test Coverage**: 100% (no exceptions without approval)
+- **Linting**: Zero errors, zero warnings
 - **Build Time**: < 30 seconds
 - **Test Execution**: < 100ms per test
 - **Zero Tolerance**: No linting errors, TypeScript errors, or console.logs
@@ -255,9 +229,11 @@ This workflow system implements **non-negotiable TDD practices**:
 ### Automated Validation
 
 Each step includes automatic validation:
-- Test-first enforcement
+- Test-first enforcement with absolute language
+- Mandatory linting after every code change
+- Pre-commit hooks for quality gates
 - Coverage verification
-- Code quality checks
+- Language-specific code quality checks
 - Documentation completeness
 - Security compliance
 
@@ -309,7 +285,7 @@ After running through the workflow, your project will have:
 
 ```
 your-project/
-├── .github/                    # GitHub workflows and templates
+├── .github/                    # GitHub workflows with linting CI/CD
 ├── docs/                       # Generated documentation
 │   ├── api/                    # API documentation
 │   ├── architecture/           # Architecture decisions
@@ -327,13 +303,15 @@ your-project/
 │   ├── integration/            # Integration tests
 │   └── e2e/                    # End-to-end tests
 ├── plan/                       # Workflow automation
-│   ├── automation/             # Workflow scripts
+│   ├── automation/             # Workflow scripts with linting
 │   └── logs/                   # Execution logs
+├── .husky/                     # Pre-commit hooks for linting
+├── linting-setup.sh            # Auto-generated linter setup script
 ├── spec.md                     # Technical specification
-├── CLAUDE.md                   # AI development context
-├── todo.md                     # Dynamic task tracking
+├── CLAUDE.md                   # AI development context with TDD rules
+├── todo.md                     # Dynamic task tracking with real-time updates
 ├── work-journal.md             # Development journal
-└── [standard config files]    # Package.json, tsconfig, etc.
+└── [config files]             # Package.json, linter configs, etc.
 ```
 
 ## 🔍 Examples
@@ -388,194 +366,6 @@ npm run lint
 4. **Export Conversation**: Use `claude-prompts` for context
 5. **Create Issue**: Use GitHub Issues for bug reports
 
-## 📤 Conversation Export & Documentation
-
-**IMPORTANT**: To help improve this workflow system and share your implementation experiences, please export your Claude Code conversations in JSON format.
-
-### Why Export Conversations?
-
-- **Workflow Improvement**: Your conversations help identify pain points and optimization opportunities
-- **Example Creation**: Real conversations become valuable examples for other developers
-- **Pattern Recognition**: Helps identify common issues and successful patterns
-- **Community Learning**: Anonymized conversations can be used to improve documentation
-
-### How to Export (Required Setup)
-
-The workflow includes the `claude-code-exporter` tool for conversation management:
-
-```bash
-# Install the export tool (done during MCP setup)
-npm install -g claude-code-exporter
-
-# Verify installation
-claude-prompts --help
-```
-
-### Export Commands
-
-```bash
-# Export current session in JSON format
-claude-prompts --json
-
-# Export current session to specific file
-claude-prompts --json --output my-project-session.json
-
-# Export all conversations from last 7 days
-claude-prompts --json --period=7d --output weekly-conversations.json
-
-# Export specific conversation by ID
-claude-prompts --json --session-id <session-id> --output specific-session.json
-
-# List available sessions to get IDs
-claude-prompts --list
-```
-
-### 📋 Export Best Practices
-
-#### When to Export
-
-- **After each major workflow step** (requirements, specification, planning, etc.)
-- **End of each development session**
-- **When encountering issues or breakthroughs**
-- **After completing features or milestones**
-- **Before major refactoring or architectural changes**
-
-#### Export Naming Convention
-
-Use descriptive filenames to organize exports:
-
-```bash
-# Project initialization
-claude-prompts --json --output project-name-01-requirements.json
-claude-prompts --json --output project-name-02-specification.json
-claude-prompts --json --output project-name-03-planning.json
-
-# Development sessions
-claude-prompts --json --output project-name-dev-session-YYYY-MM-DD.json
-
-# Feature development
-claude-prompts --json --output project-name-feature-authentication.json
-claude-prompts --json --output project-name-feature-api-endpoints.json
-```
-
-#### What to Include in Exports
-
-**Essential Exports:**
-- [ ] Complete workflow runs (all 8 steps)
-- [ ] TDD implementation sessions
-- [ ] Problem-solving conversations
-- [ ] Successful feature implementations
-- [ ] Error resolution sessions
-
-**Valuable Exports:**
-- [ ] MCP server troubleshooting
-- [ ] Architecture decision discussions
-- [ ] Performance optimization sessions
-- [ ] Security implementation conversations
-- [ ] Testing strategy development
-
-### 🔒 Privacy & Security
-
-#### Before Exporting
-
-**ALWAYS review exports for sensitive information:**
-
-```bash
-# Review export content before sharing
-cat your-export.json | grep -i -E "(password|secret|key|token|credential)"
-
-# Remove sensitive data if found
-# Edit the JSON file to redact private information
-```
-
-#### Safe to Share
-
-- ✅ General development patterns and solutions
-- ✅ TDD implementation strategies
-- ✅ MCP server usage examples
-- ✅ Architecture discussions (without business secrets)
-- ✅ Error messages and troubleshooting steps
-- ✅ Code examples (without proprietary logic)
-
-#### DO NOT Share
-
-- ❌ API keys, passwords, or credentials
-- ❌ Proprietary business logic or algorithms
-- ❌ Private company information
-- ❌ Personal information (emails, names, addresses)
-- ❌ Internal URLs or server configurations
-- ❌ Database schemas with sensitive data
-
-### 📊 Sharing Your Exports
-
-#### For Workflow Improvement
-
-Email JSON exports to: **claude-code-catalyst@example.com**
-
-**Subject Line Format:**
-- `[EXPORT] Project Type - Workflow Step - Brief Description`
-- Examples:
-  - `[EXPORT] React App - Complete Workflow - E-commerce Platform`
-  - `[EXPORT] API Service - TDD Session - Authentication Implementation`
-  - `[EXPORT] CLI Tool - Troubleshooting - MCP Server Issues`
-
-#### For Community Examples
-
-Create a GitHub issue with:
-- **Title**: `[EXAMPLE] Project Type: Brief Description`
-- **Attach**: Sanitized JSON export
-- **Include**: Brief project description and key learnings
-- **Tag**: `example`, `documentation`
-
-#### For Bug Reports
-
-If your export contains error reproduction:
-- **Title**: `[BUG] Brief Error Description`
-- **Attach**: Relevant JSON export sections
-- **Include**: Steps to reproduce and expected behavior
-- **Tag**: `bug`, `needs-investigation`
-
-### 📈 Export Analytics
-
-Your exports help us understand:
-
-- **Common workflow patterns** and successful implementations
-- **Frequent pain points** and areas needing improvement
-- **MCP server usage patterns** and optimization opportunities
-- **TDD adoption challenges** and solutions
-- **Documentation gaps** and unclear instructions
-
-### 🎯 Export Goals
-
-Help us reach these community goals:
-
-- **100 Complete Workflow Exports**: Full project implementations
-- **500 Feature Development Sessions**: TDD implementation examples
-- **50 Problem Resolution Sessions**: Troubleshooting and solutions
-- **25 Architecture Decision Sessions**: Design pattern discussions
-
-**Your contributions make this workflow system better for everyone!**
-
-### Example Export Session
-
-```bash
-# Start new project session
-claude-prompts --start-session "MyApp Requirements Discovery"
-
-# ... work through requirements prompt ...
-
-# Export the session
-claude-prompts --json --output myapp-requirements-2025-01-04.json
-
-# Continue to next step
-claude-prompts --start-session "MyApp Specification Generation"
-
-# ... work through specification prompt ...
-
-# Export specification session
-claude-prompts --json --output myapp-specification-2025-01-04.json
-```
-
 ## 🤝 Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
@@ -601,19 +391,14 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## 🙏 Acknowledgments
 
-- **[Harper Reed](https://github.com/harperreed)**: For the original prompts that inspired and started this project
-- **Anthropic Team**: For Claude, Claude Research, and Claude Code - the AI tools that made this comprehensive workflow system possible
+- **Anthropic Team**: For Claude Code and MCP server architecture
 - **TDD Community**: For establishing test-driven development best practices
 - **Open Source Contributors**: For the amazing tools that make this workflow possible
 
-## 📝 About This Documentation
-
-This README was written collaboratively using Claude AI and Claude Code, then carefully proofread and edited by human contributors to ensure accuracy and clarity. The project itself was built using the complete suite of Anthropic's AI tools: Claude for ideation and problem-solving, Claude Research for gathering best practices, and Claude Code for implementation and testing.
-
 ## 📞 Support & Community
 
-- 🐛 **Issues**: [GitHub Issues](https://github.com/Mlitz/Claude-Code-Catalyst/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/Mlitz/Claude-Code-Catalyst/discussions)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/mlitz/claude-code-catalyst/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/mlitz/claude-code-catalyst/discussions)
 - 📖 **Documentation**: [Full documentation](./docs/)
 
 ---

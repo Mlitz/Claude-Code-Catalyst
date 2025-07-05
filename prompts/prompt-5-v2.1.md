@@ -1,8 +1,8 @@
-# Prompt #5 V2.0: Development Session Initialization
+# Prompt #5 V2.1: Development Session Initialization with Linter Verification
 
-**Version**: 2.0
+**Version**: 2.1
 **Last Updated**: January 2025
-**Purpose**: Start each development session with comprehensive context loading, health checks, and session preparation
+**Purpose**: Start each development session with comprehensive context loading, health checks, linter verification, and session preparation
 
 **Usage**: Run this at the beginning of EVERY Claude Code session to ensure continuity and proper setup.
 
@@ -53,9 +53,10 @@ Using filesystem server, I'll load and summarize:
    - Key requirements
    - Success metrics
 
-2. **AI Context (claude.md)**
+2. **AI Context (CLAUDE.md)**
    - Coding standards
    - TDD requirements
+   - Linting requirements
    - Security constraints
    - MCP usage patterns
 
@@ -120,17 +121,64 @@ npm outdated
 
 ### Development Tools
 ```bash
-# TypeScript compiler
+# TypeScript compiler (if applicable)
 npx tsc --version
 
 # Test runner
 npx jest --version
 
-# Linter
-npx eslint --version
+# Check project-specific linter
+if [ -f "./lint.sh" ]; then
+    echo "Project linter: ✅"
+    ./lint.sh --version 2>/dev/null || echo "Linter configured"
+elif [ -f "package.json" ] && grep -q "\"lint\":" package.json; then
+    echo "NPM lint command: ✅"
+else
+    echo "⚠️  No linter configured - run setup-project-linter.sh"
+fi
 ```
 
-**STEP 5: Session Intelligence Report**
+### Linter Health Check
+```bash
+# Quick lint check to ensure it's working
+echo "Running linter health check..."
+
+# Try to run the linter
+if [ -f "./lint.sh" ]; then
+    ./lint.sh 2>&1 | head -10
+elif [ -f "package.json" ] && grep -q "\"lint\":" package.json; then
+    npm run lint 2>&1 | head -10
+else
+    echo "⚠️  Linter not found - this may impact code quality"
+fi
+
+# Check for pre-commit hooks
+if [ -f ".git/hooks/pre-commit" ]; then
+    echo "Pre-commit hooks: ✅"
+else
+    echo "⚠️  No pre-commit hooks - linting won't run automatically"
+fi
+```
+
+**STEP 5: Code Quality Status**
+
+### Coverage Report
+```bash
+# Check current test coverage
+if [ -f "coverage/coverage-summary.json" ]; then
+    echo "Last coverage report found"
+    # Extract coverage percentage
+fi
+```
+
+### Outstanding Linting Issues
+```bash
+# Check for any ignored linting rules
+grep -r "eslint-disable\|pylint: disable\|@ts-ignore" src/ 2>/dev/null | wc -l
+echo "Suppressed linting warnings found"
+```
+
+**STEP 6: Session Intelligence Report**
 
 ## 📊 Session Status Report
 
@@ -144,7 +192,14 @@ npx eslint --version
 - **Overall Completion**: [X]% ([Y] of [Z] tasks)
 - **Current Phase**: [X]% complete
 - **Test Coverage**: [X]%
+- **Linting Status**: [✅ Clean | ⚠️ Issues | ❌ Not configured]
 - **Technical Debt**: [Low/Medium/High]
+
+### Code Quality Indicators
+- **Linter**: [Detected linter type]
+- **Last Lint Run**: [Timestamp if available]
+- **Suppressed Warnings**: [Count]
+- **Pre-commit Hooks**: [Active/Inactive]
 
 ### Today's Focus
 **Primary Objective**: [Main goal for this session]
@@ -152,6 +207,11 @@ npx eslint --version
 1. [Task 1 - Time estimate]
 2. [Task 2 - Time estimate]
 3. [Task 3 - Time estimate]
+
+**Quality Reminders**:
+- [ ] Run linter before each commit
+- [ ] Write tests first (TDD)
+- [ ] Check coverage after implementation
 
 **Blocked Items**: [List any blockers]
 
@@ -169,11 +229,12 @@ npx eslint --version
 - [ ] [Milestone 1] - Due: [Date]
 - [ ] [Milestone 2] - Due: [Date]
 
-**STEP 6: Session Configuration**
+**STEP 7: Session Configuration**
 
-### TDD Commitment
+### Quality Commitment
 ✅ **I acknowledge and will enforce:**
 - Tests MUST be written first
+- Linting MUST pass before commits
 - No implementation without failing tests
 - Full test suite must pass before commits
 - Coverage must not decrease
@@ -187,18 +248,26 @@ For today's work, I'll use:
 - **Memory**: [What to preserve]
 
 ### Quality Standards
-- [ ] Follow coding standards in claude.md
+- [ ] Follow coding standards in CLAUDE.md
+- [ ] Run linter after each implementation
 - [ ] Maintain project structure
 - [ ] Update documentation
 - [ ] Write meaningful commits
 
-**STEP 7: Session Initialization Complete**
+### Pre-Session Checklist
+- [ ] All MCP servers connected
+- [ ] Linter is functional
+- [ ] No uncommitted changes (or they're intentional)
+- [ ] Tests are passing
+- [ ] Ready to write tests first
+
+**STEP 8: Session Initialization Complete**
 
 ## ✅ Ready for Development
 
 **Session ID**: [Generated UUID]
 **Started**: [Timestamp]
-**Mode**: TDD Enforced
+**Mode**: TDD Enforced + Linting Active
 **Next Action**: [Specific next step]
 
 ### Quick Commands
@@ -210,10 +279,39 @@ npm test
 npm run dev
 
 # Check linting
-npm run lint
+./lint.sh  # or npm run lint
 
-# Type checking
+# Run tests in watch mode
+npm run test:watch
+
+# Type checking (if applicable)
 npm run type-check
+```
+
+### Session Workflow Reminder
+1. Pick task from todo.md
+2. Write failing test FIRST
+3. Run test to verify failure
+4. Implement minimal solution
+5. **Run linter and fix issues**
+6. Run tests to verify pass
+7. Refactor if needed
+8. **Final lint check**
+9. Commit with good message
+
+### Quality Gates
+Before ANY commit:
+```bash
+# 1. Run tests
+npm test
+
+# 2. Run linter
+./lint.sh
+
+# 3. Check coverage
+npm run test:coverage
+
+# All must pass!
 ```
 
 ### Session Plan
@@ -224,6 +322,7 @@ npm run type-check
 
 ### Reminders
 - 🧪 Write tests first
+- 🧹 Lint before every commit
 - 📝 Update todo.md as you progress
 - 💾 Commit frequently with good messages
 - 📚 Document decisions in work-journal.md
@@ -233,4 +332,5 @@ npm run type-check
 
 ---
 
-**Note**: If this is your first session, some files may not exist yet. That's okay - we'll create them as needed.
+**Note**: If linting is not configured, run `./setup-project-linter.sh` from Prompt #4 V2.1 before proceeding with development.
+```
