@@ -139,24 +139,6 @@ Step 6   │ Feature Development      │ Variable  │ TDD cycle: RED→GREEN�
 | `06-development-session-initialization.md` | Start daily session | **Daily** - Every dev session |
 | `07-tdd-enforcement-template.md` | Implement features | **Per feature** - Development work |
 
-### 🔁 Development Cycle
-
-```
-Daily Development Loop:
-┌─────────────────────────────────────────┐
-│ 1. Session Init (Step 5)               │
-│ 2. Pick feature from todo.md           │
-│ 3. Use TDD Template (Step 6):          │
-│    ├─ Write failing tests (RED)        │
-│    ├─ Implement minimal code (GREEN)   │
-│    ├─ Refactor & improve (REFACTOR)    │
-│    └─ Document & commit                │
-│ 4. Update todo.md progress             │
-│ 5. Export conversation (JSON)          │
-└─────────────────────────────────────────┘
-         ↓
-    Repeat until project complete
-```
 
 ## 🛠️ Detailed Usage
 
@@ -619,15 +601,19 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## 🙏 Acknowledgments
 
-- **Anthropic Team**: For Claude Code and MCP server architecture
+- **[Harper Reed](https://github.com/harperreed)**: For the original prompts that inspired and started this project
+- **Anthropic Team**: For Claude, Claude Research, and Claude Code - the AI tools that made this comprehensive workflow system possible
 - **TDD Community**: For establishing test-driven development best practices
 - **Open Source Contributors**: For the amazing tools that make this workflow possible
 
+## 📝 About This Documentation
+
+This README was written collaboratively using Claude AI and Claude Code, then carefully proofread and edited by human contributors to ensure accuracy and clarity. The project itself was built using the complete suite of Anthropic's AI tools: Claude for ideation and problem-solving, Claude Research for gathering best practices, and Claude Code for implementation and testing.
+
 ## 📞 Support & Community
 
-- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/claude-code-catalyst/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/yourusername/claude-code-catalyst/discussions)
-- 📧 **Email**: claude-code-catalyst@example.com
+- 🐛 **Issues**: [GitHub Issues](https://github.com/Mlitz/Claude-Code-Catalyst/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/Mlitz/Claude-Code-Catalyst/discussions)
 - 📖 **Documentation**: [Full documentation](./docs/)
 
 ---
