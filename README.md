@@ -49,6 +49,7 @@ The foundation of this workflow is the MCP server ecosystem. Start with:
 ```
 
 This sets up 5 essential servers:
+
 - **Serena**: Semantic code analysis and intelligent refactoring
 - **Context7**: Real-time documentation and code examples
 - **Memory**: Persistent context across sessions
@@ -77,28 +78,18 @@ Follow the sequential prompts to build your application:
 
 ```mermaid
 graph TD
-    A[Prompt 0: MCP Server Setup v2.0] --> B[Prompt 0.5: Workflow Automation v2.1]
-    B --> C[Prompt 1: Requirements Discovery v2.0]
-    C --> D[Prompt 2: Specification Generation v3.1]
-    D --> E[Prompt 3: Development Planning v2.1]
-    E --> F[Prompt 4: Project Setup v2.1]
-    F --> G[Prompt 5: Session Initialization v2.1]
-    G --> H[Prompt 6: Feature Development TDD v2.1]
+    A[MCP Server Setup] --> B[Workflow Automation]
+    B --> C[Requirements Discovery]
+    C --> D[Specification Generation]
+    D --> E[Development Planning]
+    E --> F[Project Setup]
+    F --> G[Session Initialization]
+    G --> H[Feature Development TDD]
     H --> I{Feature Complete?}
     I -->|No| H
     I -->|Yes| J{Project Complete?}
     J -->|No| G
     J -->|Yes| K[Deployment & Documentation]
-    
-    style A fill:#e1f5fe
-    style B fill:#e8f5e8
-    style C fill:#fff3e0
-    style D fill:#fce4ec
-    style E fill:#f3e5f5
-    style F fill:#e0f2f1
-    style G fill:#fff8e1
-    style H fill:#ffebee
-    style K fill:#e8f5e8
 ```
 
 ## 🛠️ Detailed Usage
@@ -111,6 +102,7 @@ graph TD
 **Purpose**: Install and configure all required MCP servers
 
 This critical first step ensures your Claude Code environment has access to:
+
 - Code analysis and refactoring tools with language support matrix
 - Real-time documentation lookup with enhanced error handling
 - Persistent memory across sessions
@@ -123,6 +115,7 @@ This critical first step ensures your Claude Code environment has access to:
 **Purpose**: Create workflow automation framework with linting integration
 
 Sets up the intelligent automation system with:
+
 - Workflow progress tracking and validation
 - Integrated linting standards configuration
 - Pre-commit hooks setup
@@ -137,6 +130,7 @@ Sets up the intelligent automation system with:
 **Purpose**: Systematic requirements gathering
 
 Interactive session that builds complete project understanding through:
+
 - Single-question discovery process
 - 4-phase progression (20 questions total)
 - Memory server integration
@@ -148,6 +142,7 @@ Interactive session that builds complete project understanding through:
 **Purpose**: Create comprehensive project documentation with dynamic linting
 
 Generates production-ready documentation:
+
 - `spec.md`: Complete technical specification
 - `CLAUDE.md`: AI development context with TDD rules
 - `work-journal.md`: Development tracking system
@@ -160,6 +155,7 @@ Generates production-ready documentation:
 **Purpose**: Create detailed implementation roadmap with quality enforcement
 
 Uses Claude Code's planning feature enhanced with:
+
 - TDD methodology integration at every task
 - Integrated linting at every step
 - Granular task breakdown with time estimates
@@ -172,6 +168,7 @@ Uses Claude Code's planning feature enhanced with:
 **Purpose**: Establish project infrastructure with auto-linter
 
 Creates complete project management system:
+
 - Dynamic todo tracking (`todo.md`) with real-time updates
 - Automatic language detection and linter installation
 - CI/CD pipeline with linting integration
@@ -186,6 +183,7 @@ Creates complete project management system:
 **Purpose**: Load context and prepare for development with linter verification
 
 Each development session starts with:
+
 - MCP server health checks and verification
 - Linter verification and setup validation
 - Context recovery from all project documentation
@@ -198,6 +196,7 @@ Each development session starts with:
 **Purpose**: Implement features with strict TDD and integrated linting
 
 The bulletproof development template with 7-phase process:
+
 - **RED**: Write failing tests first (non-negotiable)
 - **GREEN**: Implement minimal code to pass
 - **REFACTOR**: Improve code quality with linting
@@ -229,6 +228,7 @@ This workflow system implements **non-negotiable TDD practices** with integrated
 ### Automated Validation
 
 Each step includes automatic validation:
+
 - Test-first enforcement with absolute language
 - Mandatory linting after every code change
 - Pre-commit hooks for quality gates
@@ -240,6 +240,7 @@ Each step includes automatic validation:
 ## 🔧 MCP Server Integration
 
 ### Serena (Code Analysis)
+
 ```bash
 # Analyze codebase structure
 "Analyze src/services with Serena for code smells"
@@ -249,6 +250,7 @@ Each step includes automatic validation:
 ```
 
 ### Context7 (Documentation)
+
 ```bash
 # Research best practices
 "use context7 for React 18 testing patterns"
@@ -258,6 +260,7 @@ Each step includes automatic validation:
 ```
 
 ### Memory (Context Preservation)
+
 ```bash
 # Store decisions
 "Remember: We chose PostgreSQL because of ACID requirements"
@@ -267,6 +270,7 @@ Each step includes automatic validation:
 ```
 
 ### GitHub (Version Control)
+
 ```bash
 # Automated workflows
 # Branch management and PR automation
@@ -274,6 +278,7 @@ Each step includes automatic validation:
 ```
 
 ### Filesystem (Secure Operations)
+
 ```bash
 # All file operations are performed through the filesystem server
 # Automatic path validation and security checks
@@ -283,7 +288,7 @@ Each step includes automatic validation:
 
 After running through the workflow, your project will have:
 
-```
+```text
 your-project/
 ├── .github/                    # GitHub workflows with linting CI/CD
 ├── docs/                       # Generated documentation
@@ -330,6 +335,7 @@ See `examples/cli-tool/` for a TypeScript CLI application example.
 ### Common Issues
 
 #### MCP Servers Not Connected
+
 ```bash
 # Check server status
 /mcp
@@ -342,6 +348,7 @@ See `examples/cli-tool/` for a TypeScript CLI application example.
 ```
 
 #### Tests Failing After Setup
+
 ```bash
 # Verify test environment
 npm test -- --detectOpenHandles
@@ -352,6 +359,7 @@ npm run lint
 ```
 
 #### Context Loss Between Sessions
+
 ```bash
 # Ensure Memory server is working
 # Use Session Initialization prompt to recover context
